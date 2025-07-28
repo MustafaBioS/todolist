@@ -1,0 +1,275 @@
+body {
+    background-color: wheat;
+    overflow: hidden;
+}
+
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 5px;
+  transition: all 0.3s ease ;
+}
+
+.delete-btn:hover {
+    transform: translateY(-4px);
+}
+
+#alert {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    height: 20px;
+    width: 200px;
+    align-items: center;
+    text-align: center;
+    
+    justify-content: center;
+    transform: translateX(-50%);
+    background-color: pink;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 999;
+    animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#bg {
+
+  background-color: white;
+  height: 600px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4), inset -5px -5px 10px rgba(255,255,255,0.9); 
+  padding: 20px;
+  gap: 10px;
+
+    
+}
+
+#bg::-webkit-scrollbar {
+  display: none;
+}
+
+#frm {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+}
+
+#task {
+    border: 2px solid pink;
+    background-color: white;
+    outline: pink;
+    height: 20px;
+    width: 200px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    transition: all 0.4s ease;
+    padding: 10px;
+    flex: none;
+    margin-top: 20px;
+
+
+}
+
+#task::placeholder {
+    color: rgb(109, 104, 104);
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#task:focus {
+    border: 2px solid pink;
+    outline: pink;
+}
+
+#task:hover {
+    transform: translateY(-6px);
+}
+
+#task:focus::placeholder {
+    color: transparent;
+}
+
+#submit {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: pink;
+    border: 2px solid pink;
+    color: white;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    transform: translateY(2px);
+}
+
+#submit:hover {
+    cursor: pointer;
+    transform: translateY(-6px);
+}
+
+#text {
+    z-index: 3;
+    font-size: 45px;
+    color: pink;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    
+}
+
+#list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0; 
+
+    flex: 1;
+  font-size: 18px;
+  margin-right: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+li {
+    width: 50%;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: pink;
+    border-radius: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    word-break: break-word;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-completed {
+    width: 200px;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: pink;
+    border: 2px solid pink;
+    color: white;
+    transition: all 0.4s ease;
+    margin-top: 5px;
+    margin-left: 150px;
+}
+
+#delete-completed:hover {
+    transform: translateY(-6px  );
+    cursor: pointer;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    transition: background-color 0.4s ease;
+}
+.task-checkbox {
+    transform: scale(1.2);
+    }
+
+.task-checkbox:checked ~ .task-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.task-item.completed {
+    background-color:  	#90EE90;
+
+}
+
+#list::-webkit-scrollbar {
+  display: none;
+}
+
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(190, 98, 113);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.task-checkbox:checked {
+  background-color: #00b894;
+  border-color: #00b894;
+}
+
+.task-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+  }
+}
